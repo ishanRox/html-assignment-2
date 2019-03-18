@@ -5,6 +5,10 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><!-- Bootstrap CSS -->
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -109,9 +113,13 @@
       /* width and height properties ommitted due to transform */
     }
 
-    #btnfoot{
-      background-color: #82ca9c; width: 70px; height: 58px; border: 0px solid;
+    #btnfoot {
+      background-color: #82ca9c;
+      width: 70px;
+      height: 58px;
+      border: 0px solid;
     }
+
     #reasons {
       background-color: #82ca9c;
       width: 100%;
@@ -410,6 +418,14 @@
       color: white;
     }
 
+
+    @media screen and (min-width: 2088px) {
+      .w3-button {
+        display: none !important;
+        transition: 1s;
+      }
+    }
+
     @media screen and (max-width: 1300px) {
       #formres {
         width: auto;
@@ -431,9 +447,27 @@
     }
 
     @media screen and (max-width: 800px) {
-      #btnfoot{
-      background-color: #82ca9c; width: auto; height: 58px; border: 0px solid;
-    }
+      .w3-button {
+        display: none !important;
+        transition: 1s;
+      }
+
+      #gallery p {
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 22px;
+        text-align: left;
+        padding-bottom: 10px;
+      }
+
+      #btnfoot {
+        background-color: #82ca9c;
+        width: auto;
+        height: 58px;
+        border: 0px solid;
+      }
+
       #reasons h1 {
         font-family: 'Open Sans';
         color: #ffffff;
@@ -513,13 +547,38 @@
       padding-top: 130px;
     }
 
-    #gallery .grid-container:hover {
-      grid-template-columns: 0px auto auto auto;
-      transition: .3s ease-in-out;
+    /*button for gallery */
+    #gallery:hover+.w3-button {
+      transition: 2s;
+
+      display: inherit;
     }
 
-    #gallery .grid-container3:hover {
-      grid-template-columns: 0px 50% 50%;
+    .w3-display-left {
+      position: absolute;
+      top: auto;
+      left: auto;
+      transform: translate(0%, 680%);
+      -ms-transform: translate(-0%, -50%);
+    }
+
+    .w3-display-right {
+      position: absolute;
+      top: auto;
+      right: 0;
+      transform: translate(0%, 680%);
+      -ms-transform: translate(0%, -50%);
+    }
+
+    .w3-button {
+      display: block;
+      transition: 1s;
+    }
+
+    .w3-button:hover {
+      background-color: white !important;
+      color: black !important;
+
     }
 
   </style>
@@ -558,6 +617,47 @@
   <div id="gallery" class="" style="margin-top: 83px; overflow: hidden;">
     <div class="container">
       <div class="grid-container">
+        <button id="left" class="w3-button w3-black w3-display-left " onclick="">&#10094;</button>
+        <button id="right" class="w3-button w3-black w3-display-right" onclick="">&#10095;</button>
+        <script>
+          $(document).ready(function() {
+            $("#gallery").hover(
+              function() {
+                $(".w3-button").css("display", "block");
+              },
+
+              function() {
+                $(".w3-button").css("display", "none");
+              }
+            );
+            /*
+    #gallery .grid-container:hover {
+      grid-template-columns: 0px auto auto auto;
+      transition: .3s ease-in-out;
+    }
+
+    #gallery .grid-container3:hover {
+      grid-template-columns: 0px 50% 50%;
+    }
+
+    */
+            $("#left").click(function() {
+              $(".grid-container").css("grid-template-columns", "0px 25% 25% 100%");
+              $(".grid-container3").css("grid-template-columns", "0px 50% 100%");
+            });
+            $("#right").click(function() {
+
+
+              $(".grid-container").css("grid-template-columns", "400px 400px 400px 400px");
+              $(".grid-container3").css("grid-template-columns", "800px 400px 400px");
+            });
+
+
+
+          });
+
+        </script>
+
         <div style="background-color: #f5989d;">
           <h2>Design quality</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut adipisicing . </p>
@@ -590,9 +690,15 @@
           </div>
         </div>
         <div style="background-color: #bd8cbf;">
+
           <h2>How to shoo great</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut adipisicing . </p>
-          <h4>Find Out more </h4>
+          <div class="row p-0 m-0">
+            <div class="col-xs-8">
+              <h4>Find Out more </h4>
+            </div>
+            <div class="col-xs-4"><img style="padding-left: 10px; width: 25px; height: 5px;" src="img/a.png" alt=""></div>
+          </div>
         </div>
       </div>
       <div class="grid-container3">
