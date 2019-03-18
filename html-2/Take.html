@@ -67,7 +67,7 @@
     }
 
     #footer p {
-      padding-right: 75px;
+      padding-right: 67px;
       font-family: 'Open Sans';
       color: #f6f7fa;
       font-size: 13px;
@@ -309,7 +309,7 @@
 
     #power p {
       font-family: 'Open Sans';
-      color: #ffffff;
+      color: #dbdbdb;
       font-size: 13px;
       font-weight: 400;
       line-height: 24px;
@@ -367,7 +367,7 @@
       border: 0px solid;
       border-radius: 1px;
       background-color: #f6f7fa;
-      width: 470px;
+      /*width: 470px;*/
       height: 58px;
     }
 
@@ -414,7 +414,7 @@
     }
 
     #effect1:hover {
-      background-color: #bd8cbf;
+      /*background-color: #bd8cbf;*/
       color: white;
     }
 
@@ -446,7 +446,43 @@
       }
     }
 
+     @media screen and (min-width: 768px) and (max-width:1024px) {
+     #look p {
+       margin-bottom: 45px;}
+       #gallery p {
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 23px;
+    text-align: left;
+    padding-bottom: 20px;
+}
+       
+       .grid-container>div {
+    height: 278px;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding-top: 51px;
+    padding-left: 24px;
+    padding-right: 0px;
+}
+       
+  #mobilpic img {
+    z-index: 5;
+     position: absolute!important;
+    top: -397px;
+    left: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+}
+    @media screen and (max-width: 760px) {
+      #mobilpic img {
+        display: none;
+      }
+    }
     @media screen and (max-width: 800px) {
+      
       .w3-button {
         display: none !important;
         transition: 1s;
@@ -621,6 +657,23 @@
         <button id="right" class="w3-button w3-black w3-display-right" onclick="">&#10095;</button>
         <script>
           $(document).ready(function() {
+            $("#c2").hover(function() {
+                $("#b2").css("background-color", "#bd8cbf");
+              },
+                              function() {
+                $("#b2").css("background-color", "#e1e1e1");
+              }
+                             
+                             );
+             $("#c1").hover(function() {
+                $("#b1").css("background-color", "#bd8cbf");
+              },
+                              function() {
+                $("#b1").css("background-color", "#e1e1e1");
+              }
+                             
+                             );
+            
             $("#gallery").hover(
               function() {
                 $(".w3-button").css("display", "block");
@@ -814,16 +867,16 @@
       <div class="row ">
         <div class="card-deck mx-auto ">
           <div class="card border-0 mb-3 " id="cardh" style="">
-            <div class="card-header bg-transparent border-0"><button type="button" class="btn" id="effect1">Legacy</button></div>
-            <div class="card-body text-success">
+            <div class="card-header bg-transparent border-0"><button type="button" class="btn" id="b1">Legacy</button></div>
+            <div class="card-body text-success" id="c1">
               <h5 class="card-title">Go it solo</h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco .</p><button class="btn" style="border-radius: 3px; background-color : #82ca9c; width: 151px; height: 47px; font-family:'Open Sans'; color : #ffffff; font-size: 13px; font-weight: 700; line-height: 22px; text-align: center; transform: scaleY(1.0005); /* ">Buy now $9</button> <br><br> <img src="img/fa-apple.png" style="padding-right: 16px;" alt=""><img src="img/fa-windows.png" alt="">
             </div>
             <div class="card-footer bg-transparent border-0"></div>
           </div>
           <div class="card border-0 mb-3 " id="cardh" style="">
-            <div class="card-header bg-transparent border-0"><button id="effect1" type="button" class="btn">Most Popular</button></div>
-            <div class="card-body text-success">
+            <div class="card-header bg-transparent border-0"><button  type="button" class="btn" id="b2">Most Popular</button></div>
+            <div class="card-body text-success" id="c2">
               <h5 class="card-title">Team Plan</h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco .</p> <button id="" class="btn" style="border-radius: 3px; background-color: #82ca9c; width: 151px; height: 47px; font-family:'Open Sans'; color: #ffffff; font-size: 13px; font-weight: 700; line-height: 22px; text-align: center; transform: scaleY(1.0005); /* ">Buy now $9</button> <br><br> <img src="img/fa-apple.png" style="padding-right: 16px;" alt=""><img src="img/fa-windows.png" alt="">
             </div>
@@ -837,11 +890,11 @@
     <div class="container-fluid">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-7">
             <h2>Get in touch</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5">
             <div class="search-container">
               <h2>Stay in touch</h2>
               <div class="input-group"> <input type="text" class="form-control" id="formres" placeholder="" style=" ">
@@ -854,15 +907,30 @@
         <div class="row">
           <div class="col-md-2">
             <h2>Resources</h2>
-            <p>Tour Customers Pricing and Plans New Features Education</p>
+            <p style=" white-space: pre;">
+Tour 
+Customers
+Pricing and Plans
+New Features
+Education</p>
           </div>
           <div class="col-md-2">
             <h2>Features</h2>
-            <p>Tour Customers Pricing and Plans New Features Education</p>
+            <p style=" white-space: pre;">
+Tour 
+Customers
+Pricing and Plans
+New Features
+Education</p>
           </div>
           <div class="col-md-2">
             <h2>How To’s</h2>
-            <p>Tour Customers Pricing and Plans New Features Education</p>
+            <p style=" white-space: pre;">
+Tour 
+Customers
+Pricing and Plans
+New Features
+Education</p>
           </div>
           <div class="col-md-6"></div>
         </div>
